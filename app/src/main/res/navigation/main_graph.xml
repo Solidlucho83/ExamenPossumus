@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/indexFragment">
+
+    <fragment
+        android:id="@+id/albumsListFragment"
+        android:name="com.luiscastaneriademo.albumsphotoslist.ui.AlbumsListFragment"
+        android:label="fragment_albums_list"
+        tools:layout="@layout/fragment_albums_list" >
+        <action
+            android:id="@+id/action_albumsListFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoListFragment"
+        android:name="com.luiscastaneriademo.albumsphotoslist.ui.PhotoListFragment"
+        android:label="fragment_photo_list"
+        tools:layout="@layout/fragment_photo_list" >
+        <action
+            android:id="@+id/action_photoListFragment_to_photoDetailFragment"
+            app:destination="@id/photoDetailFragment"
+            app:enterAnim="@anim/enter_from_right" />
+        <action
+            android:id="@+id/action_photoListFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoDetailFragment"
+        android:name="com.luiscastaneriademo.albumsphotoslist.ui.PhotoDetailFragment"
+        android:label="fragment_photo_detail"
+        tools:layout="@layout/fragment_photo_detail" >
+        <action
+            android:id="@+id/action_photoDetailFragment_to_photoListFragment"
+            app:destination="@id/photoListFragment"
+            app:enterAnim="@anim/enter_from_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/indexFragment"
+        android:name="com.luiscastaneriademo.albumsphotoslist.ui.IndexFragment"
+        android:label="fragment_index"
+        tools:layout="@layout/fragment_index" >
+        <action
+            android:id="@+id/action_indexFragment_to_photoListFragment"
+            app:destination="@id/photoListFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_albumsListFragment"
+            app:destination="@id/albumsListFragment"
+            app:enterAnim="@anim/enter_from_right" />
+    </fragment>
+</navigation>
