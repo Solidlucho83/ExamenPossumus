@@ -44,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/roboto_bold"
                     tools:text="Title" />
 
 

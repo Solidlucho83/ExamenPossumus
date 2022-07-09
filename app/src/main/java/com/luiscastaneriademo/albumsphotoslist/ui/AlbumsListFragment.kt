@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.luiscastaneriademo.albumsphotoslist.R
 import com.luiscastaneriademo.albumsphotoslist.core.Resource
 import com.luiscastaneriademo.albumsphotoslist.ui.adapter.AlbumMainAdapter
 import com.luiscastaneriademo.albumsphotoslist.core.VMFactory
@@ -41,7 +43,11 @@ class AlbumsListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnreturnAlbum.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_albumsListFragment_to_indexFragment
+            )
+        }
         initRw()
         viewModel.fecthListAlbums.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
